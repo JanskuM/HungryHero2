@@ -4,6 +4,8 @@ package
 	
 	public class Game extends Sprite
 	{
+		private var screenWelcome:Welcome;
+		
 		public function Game()
 		{
 			addEventListener(starling.events.Event.ADDED_TO_STAGE, onAddedToStage);
@@ -13,6 +15,8 @@ package
 		{
 			trace( "starling framework initialized!");
 			
+			screenWelcome = new Welcome();
+			addChild(screenWelcome);
 		}
 	}
 }
