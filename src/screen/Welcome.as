@@ -4,6 +4,7 @@ package screen
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Event;
+	
 	import com.greensock.TweenLite;
 	
 	public class Welcome extends Sprite
