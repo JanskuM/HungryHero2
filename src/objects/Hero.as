@@ -1,5 +1,6 @@
 package objects
 {
+	import starling.core.Starling;
 	import starling.display.MovieClip;
 	import starling.display.Sprite;
 	import starling.events.Event;
@@ -25,6 +26,7 @@ package objects
 			heroArt = new MovieClip(Assets.getAtlas().getTextures("fly_"), 20);
 			heroArt.x = Math.ceil(-heroArt.width/2);
 			heroArt.y = Math.ceil(-heroArt.height/2);
+			starling.core.Starling.juggler.add(heroArt);
 			addChild(heroArt);
 			
 		}
