@@ -27,5 +27,15 @@ package screens
 			hero.y = stage.stageHeight/2;
 			addChild(hero);			
 		}
+		
+		public function disposeTemporarily():void
+		{
+			visible = false;
+		}
+		
+		public function initialize():void
+		{
+			visible = true;
+		}
 	}
 }

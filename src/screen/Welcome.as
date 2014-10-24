@@ -1,11 +1,13 @@
 package screen
 {
+	import com.greensock.TweenLite;
+	
+	import events.NavigationEvent;
+	
 	import starling.display.Button;
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Event;
-	
-	import com.greensock.TweenLite;
 	
 	public class Welcome extends Sprite
 	{
@@ -33,26 +35,44 @@ package screen
 			bg = new Image(Assets.getTexture("BgWelcome"));
 			addChild(bg);
 			
-			title = new Image(Assets.getTexture("WelcomeTitle"));
+			title = new Image(Assets.getAtlas().getTexture("welcome_title"));
 			title.x = 440;
 			title.y = 20;
 			addChild(title);
 			
-			hero = new Image(Assets.getTexture("WelcomeHero"));
+			hero = new Image(Assets.getAtlas().getTexture("welcome_hero"));
 			addChild(hero);
 			hero.x = -hero.width;
 			hero.y = 100;
 			
-			playBtn = new Button(Assets.getTexture("WelcomePlayBtn"));
+			playBtn = new Button(Assets.getAtlas().getTexture("welcome_playButton"));
 			playBtn.x = 500;
 			playBtn.y = 260;
 			addChild(playBtn);
 			
-			aboutBtn = new Button(Assets.getTexture("WelcomeAboutBtn"));
+			aboutBtn = new Button(Assets.getAtlas().getTexture("welcome_aboutButton"));
 			aboutBtn.x = 410;
 			aboutBtn.y = 380;
 			addChild(aboutBtn);
 			
+			addEventListener(Event.TRIGGERED, onMainMenuClick);
+		}
+		
+		private function onMainMenuClick(event:Event):void
+		{
+			var buttonClicked:Button = event.target as Button;
+			if((buttonClicked as Button) == playBtn)
+			{
+				dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, {id:"play"}, true));
+			}
+			
+		}
+		
+		public function disposeTemporarily():void
+		{
+			visible = false;
+			
+			if(hasEventListener(Event.ENTER_FRAME)) removeEventListener(Event.ENTER_FRAME, heroAnimation);
 		}
 		
 		public function initialize():void

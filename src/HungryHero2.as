@@ -19,8 +19,8 @@ package
 			stats = new Stats();
 			addChild(stats);
 			
-			//myStarling = new Starling(Game, stage);
-			myStarling = new Starling(screens.InGame, stage);
+			myStarling = new Starling(Game, stage);
+			//myStarling = new Starling(screens.InGame, stage);
 			myStarling.antiAliasing = 1;
 			myStarling.start();
 		}

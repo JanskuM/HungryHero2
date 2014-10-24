@@ -11,7 +11,7 @@ package
 		[Embed(source="../media/graphics/bgWelcome.jpg")]
 		public static const BgWelcome:Class;
 		
-		[Embed(source="../media/graphics/welcome_hero.png")]
+		/*[Embed(source="../media/graphics/welcome_hero.png")]
 		public static const WelcomeHero:Class;
 		
 		[Embed(source="../media/graphics/welcome_title.png")]
@@ -22,6 +22,10 @@ package
 		
 		[Embed(source="../media/graphics/welcome_aboutButton.png")]
 		public static const WelcomeAboutBtn:Class;
+		
+		voi tehdä näinkin, mutta se vaatii paljon koneelta, koska se joutuu kattelemaan grafiikat koneen muistista aina kun peli avataan
+		joten näiden laittaminen yhteen sprite sheetiin helpottaa pelin suoritusta. 
+		Taustakuvaa kun ei ole sprite sheetissä, sitä emme voi ottaa pois kuten kaiken muun.*/
 		
 		private static var gameTextures:Dictionary = new Dictionary();
 		private static var gameTextureAtlas:TextureAtlas;
