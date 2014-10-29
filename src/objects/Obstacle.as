@@ -21,10 +21,10 @@ package objects
 		
 		public function Obstacle(_type:int, _distance:int, _watchOut:Boolean = true, _speed:int = 0)
 		{
-			_type = _type;
-			_distance = _distance;
-			_watchOut = _watchOut;
-			_speed = _speed;  // <--- mielestäni turhia rivejä.
+			this._type = _type;
+			this._distance = _distance;
+			this._watchOut = _watchOut;
+			this._speed = _speed;  // <--- mielestäni turhia rivejä _type:sta _speed:n.
 			
 			_alreadyHit = false
 			
@@ -94,7 +94,7 @@ package objects
 			}
 		}
 
-		private function onAddedToStage():void
+		private function onAddedToStage(event:Event):void
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			

@@ -40,7 +40,7 @@ package objects
 			addEventListener(Event.ENTER_FRAME, onEnterFrame);
 		}
 		
-		private function onEnterFrame(event:Event):void
+		private function onEnterFrame():void
 		{
 			bgLayer1.x -= Math.ceil( _speed * bgLayer1.parallax);
 			if( bgLayer1.x < -stage.stageWidth) bgLayer1.x = 0;	
