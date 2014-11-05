@@ -13,6 +13,7 @@ package screens
 	import starling.events.Event;
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
+	import starling.text.TextField;
 	import starling.utils.deg2rad;
 	
 	public class InGame extends Sprite
@@ -38,6 +39,8 @@ package screens
 		private var touchX:Number;
 		private var touchY:Number;
 		
+		private var scoreText:TextField;
+		
 		private var obstaclesToAnimate:Vector.<Obstacle>;
 		private var itemsToAnimate:Vector.<Items>;
 		
@@ -50,6 +53,7 @@ package screens
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			drawGame();
+			scoreText = new TextField( 300 , 100 , "Score: ", "MyFontName"
 		}
 		
 		private function drawGame():void
@@ -173,6 +177,7 @@ package screens
 					
 					initObstacle();
 					animateObstacles();
+					
 					createFoodItems();
 					animateItems();
 					
@@ -186,10 +191,24 @@ package screens
 		{
 			var itemToTrack:Items;
 			
-			for( var i:uint = =; i < itemsToAnimate.length; i++)
+			for(var i:uint = 0; i < itemsToAnimate.length; i++)
 			{
 				itemsToAnimate = itemToTrack[i];
 				itemToTrack.x -= playerSpeed * elapsed;
+				
+				if(itemToTrack.bounds.intersects(hero.bounds))
+				{
+					itemsToAnimate.splice(i, 1);
+					removeChild(itemToTrack);
+				}
+				
+				if(itemToTrack.x < -50)
+				{
+					itemsToAnimate.splice(i, 1);
+					removeChild(itemToTrack);
+				}
+			
+			
 			}
 		}
 		
