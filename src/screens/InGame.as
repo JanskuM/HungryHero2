@@ -41,7 +41,7 @@ package screens
 		
 		private var scoreText:TextField;
 		
-		private var obstaclesToAnimate:Vector.<Obstacle>;
+		private var obstaclesToAnimate:Vector.<Obstacle>
 		private var itemsToAnimate:Vector.<Items>;
 		
 		public function InGame()
@@ -53,7 +53,9 @@ package screens
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			drawGame();
-			scoreText = new TextField( 300 , 100 , "Score: ", "MyFontName"
+			
+			scoreText = new TextField( 300 , 100 , "Score: ", "MyFontName", 24, 0xFFFFFF);
+			addChild(scoreText);
 		}
 		
 		private function drawGame():void
@@ -173,6 +175,7 @@ package screens
 					bg.speed * elapsed;
 					
 					scoreDistance += (playerSpeed * elapsed) * 0.1;
+					scoreText.text = "Score: " + scoreDistance;
 					trace(scoreDistance);
 					
 					initObstacle();
@@ -265,7 +268,7 @@ package screens
 					{
 						obstacleToTrack.watchOut = false;
 					}
-					obstacleToTrack.x -= playerSpeed * elapsed;
+					obstacleToTrack.x -= (playerSpeed + obstacleToTrack.speed) * elapsed;
 				}
 				
 				if(obstacleToTrack.x < -obstacleToTrack.width || gameState == "over")

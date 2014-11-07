@@ -73,7 +73,7 @@ package objects
 			if(value)
 			{
 				obstacleCrashImage.visible = true;
-				if(_type == 4) obstacleAnimation.visible = false;
+				if(_type == 4)obstacleAnimation.visible = false;
 				else obstacleImage.visible = false;
 			}
 		}
@@ -111,7 +111,7 @@ package objects
 			if( _type == 4)
 			{
 				watchOutAnimation.x = -watchOutAnimation.texture.width;
-				watchOutAnimation.y = obstacleAnimation.y + ( obstacleAnimation.texture.height * 0.5) - ( watchOutAnimation.texture.height * 0.5);
+				watchOutAnimation.y = obstacleAnimation.y + (obstacleAnimation.texture.height * 0.5) - (watchOutAnimation.texture.height * 0.5);
 			}
 			else
 			{
